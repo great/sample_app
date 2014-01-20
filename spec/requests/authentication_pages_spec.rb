@@ -27,7 +27,7 @@ describe "AuthenticationPages" do
 
     describe "with valid information" do
       let(:user) { FactoryGirl.create(:user) }
-      before { sign_in user } # Listing 9.5 suggests sole block, but can't???
+      before { sign_in user }
 
       it { should have_title(user.name) }
       it { should have_link('Profile',     href: user_path(user)) }
