@@ -93,6 +93,19 @@ describe "Authentication" do
         end
       end
 
+      # L 11.33
+      describe "in the Relationships controller" do
+        describe "submitting to the create action" do
+          before { post relationships_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+
+        describe "submitting to the distroy action" do
+          before { delete relationships_path(1) }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+      end
+
       # L 10.23
       describe "in the Microposts controller" do
 
